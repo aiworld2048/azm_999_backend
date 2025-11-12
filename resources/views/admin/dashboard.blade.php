@@ -17,12 +17,20 @@
     <div class="container-fluid">
         <div class="row">
 
-            <!-- Your Balance -->
+            <!-- User Balance (Owner/Agent/Player) -->
             <div class="col-lg-3 col-6">
                 <div class="small-box bg-info">
                     <div class="inner">
                         <h3>{{ number_format($user->wallet->balanceFloat ?? 0, 2) }}</h3>
-                        <p>Owner Balance</p>
+                        <p>
+                            @if($role === 'Owner')
+                                Owner Balance
+                            @elseif($role === 'Agent')
+                                Agent Balance
+                            @else
+                                Player Balance
+                            @endif
+                        </p>
                     </div>
                     <div class="icon">
                         <i class="fas fa-wallet"></i>

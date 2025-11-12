@@ -19,8 +19,8 @@ class UsersTableSeeder extends Seeder
         // Create owner with large initial capital
         $owner = $this->createUser(
             UserType::Owner,
+            'OWNER',
             'AZM999',
-            'O',
             '09123456789',
             null,
             'OWNER'.Str::random(6)
@@ -100,7 +100,7 @@ class UsersTableSeeder extends Seeder
             'name' => $name,
             'user_name' => $user_name,
             'phone' => $phone,
-            'password' => Hash::make('azm999'),
+            'password' => Hash::make('azm999vip'),
             'agent_id' => $parent_id,
             'status' => 1,
             'is_changed_password' => 1,

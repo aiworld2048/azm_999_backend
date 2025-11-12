@@ -20,12 +20,19 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('profile', 2000)->nullable();
+            $table->decimal('max_score')->default(0.00);
             $table->integer('status')->default(1);
             $table->integer('is_changed_password')->default(1);
             $table->unsignedBigInteger('agent_id')->nullable();
-            
+            $table->unsignedBigInteger('payment_type_id')->nullable();
+            $table->string('agent_logo')->default('default.png');
+            $table->string('account_name')->nullable();
+            $table->string('account_number')->nullable();
+            $table->string('line_id')->nullable();
+            $table->decimal('commission')->default(0.00);
             $table->string('referral_code')->nullable();
-           
+            $table->string('site_name')->nullable();
+            $table->string('site_link')->nullable();
             $table->string('type');
             $table->rememberToken();
             $table->timestamps();

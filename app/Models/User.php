@@ -38,16 +38,23 @@ class User extends Authenticatable implements Wallet
         'profile',
         'email',
         'password',
+        'game_provider_password',
         'profile',
         'phone',
+        'max_score',
         'agent_id',
         'status',
         'type',
         'is_changed_password',
         'referral_code',
-        
+        'agent_logo',
+        'site_name',
+        'site_link',
+        'limit',
+        'limit3',
+        'cor',
+        'cor3',
     ];
-
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -179,6 +186,9 @@ class User extends Authenticatable implements Wallet
 
     
 
-    
+    public function buffaloPlayer()
+    {
+        return $this->hasMany(PlaceBet::class, 'player_id', 'id');
+    }
 
 }

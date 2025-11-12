@@ -138,6 +138,12 @@ Route::group([
     Route::get('/players-list', [PlayerController::class, 'player_with_agent'])
         ->middleware('permission:player_view')
         ->name('playerListForAdmin');
+    
+    // Player report route
+    Route::get('player/{player}/report', [PlayerController::class, 'playerReportIndex'])
+        ->middleware('permission:player_view')
+        ->name('player.report_detail');
+    
     // agent create player end
     // report log
 
