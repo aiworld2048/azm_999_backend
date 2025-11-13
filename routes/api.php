@@ -8,6 +8,8 @@ use App\Http\Controllers\Api\PoneWine\PoneWineLaunchGameController;
 use App\Http\Controllers\Api\PoneWine\ProviderLaunchGameController;
 use App\Http\Controllers\Api\V1\Auth\AuthController;
 use App\Http\Controllers\Api\V1\Game\BuffaloGameController;
+use App\Http\Controllers\Api\V1\gplus\Webhook\ProductListController;
+use App\Http\Controllers\Api\V1\gplus\Webhook\GameListController;
 
 
 Route::post('/login', [AuthController::class, 'login']);
@@ -15,29 +17,14 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/player-change-password', [AuthController::class, 'playerChangePassword']);
 Route::post('/logout', [AuthController::class, 'logout']);
 
-// Route::group(['prefix' => 'shan'], function () {
-//     Route::post('balance', [ShanGetBalanceController::class, 'getBalance']);
-    
-// });
 
 
+// gsc plus route start 
 
-// Provider route
-// Route::post('/provider/launch-game', [ProviderLaunchGameController::class, 'launchGameForClient']);
+Route::get('product-list', [ProductListController::class, 'index']);
+Route::get('operators/provider-games', [GameListController::class, 'index']);
 
-// shan route end
-// PoneWine 
-// Route::post('/pone-wine/client-report', [PoneWineClientBalanceUpdateController::class, 'PoneWineClientReport']);
-
-
-// Route::middleware(['auth:sanctum'])->group(function () {
-//     // route prefix shan 
-//     Route::group(['prefix' => 'ponewine'], function () {
-//        Route::post('/pone-wine/launch-game', [PoneWineLaunchGameController::class, 'launchGame']);
-//     });
-// });
-
-
+// gsc plus route end
 // Buffalo Game API routes
 Route::prefix('buffalo')->group(function () {
     // Public webhook endpoints (no authentication required)
