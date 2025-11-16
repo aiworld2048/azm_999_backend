@@ -4,7 +4,7 @@ namespace App\Http\Requests\Api;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RegisterRequest extends FormRequest
+class WithdrawRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,10 +22,7 @@ class RegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|min:3|string',
-            'password' => 'required|min:6|confirmed',
-            'phone' => ['required', 'regex:/^[0-9]+$/', 'unique:users,phone'],
-            'referral_code' => ['required'],
+            'amount' => ['required', 'integer', 'min:1'],
         ];
     }
 }
