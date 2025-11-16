@@ -75,7 +75,7 @@ class DepositRequestController extends Controller
             $deposit->update([
                 'status' => $request->status,
                 'note' => $note,
-                'sub_agent_id' => $user->id,
+                //'sub_agent_id' => $user->id,
                 'sub_agent_name' => $user->user_name,
             ]);
 
@@ -136,7 +136,7 @@ class DepositRequestController extends Controller
             $deposit->update([
                 'status' => $request->status,
                 'note' => $note,
-                'sub_agent_id' => $user->id,
+                //'sub_agent_id' => $user->id : null,
                 'sub_agent_name' => $user->user_name,
             ]);
 
